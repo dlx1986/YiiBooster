@@ -39,7 +39,7 @@ class TbFormInputElement extends CFormInputElement
 		//HTML5 types not supported in YiiBooster yet: render as textField
 		'url' => 'textFieldRow',
 		'email' => 'textFieldRow',
-		'number' => 'textFieldRow',
+		'number' => 'numberFieldRow',
 		//'range'=>'activeRangeField', not supported yet
 		'date' => 'datepickerRow',
 		//new YiiBooster types
