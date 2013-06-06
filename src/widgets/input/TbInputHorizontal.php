@@ -594,7 +594,13 @@ class TbInputHorizontal extends TbInput
 	{
 		if (isset($this->htmlOptions['options'])) {
 			$options = $this->htmlOptions['options'];
-			unset($this->htmlOptions['options']);
+			if (isset($options['listOptions']))
+			{
+			    $this->htmlOptions['options'] = $options['listOptions'];
+			    unset($options['listOptions']);
+			}
+			else
+			    unset($this->htmlOptions['options']);			
 		}
 
 		if (isset($this->htmlOptions['events'])) {
