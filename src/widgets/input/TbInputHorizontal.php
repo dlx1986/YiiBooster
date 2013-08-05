@@ -1,17 +1,21 @@
 <?php
 /**
- * TbInputHorizontal class file.
+ *## TbInputHorizontal class file.
+ *
  * @author Christoffer Niska <ChristofferNiska@gmail.com>
  * @copyright Copyright &copy; Christoffer Niska 2011-
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- * @package bootstrap.widgets.input
  */
 
 Yii::import('bootstrap.widgets.input.TbInput');
 
 /**
+ *## TbInputHorizontal class
+ *
  * Bootstrap horizontal form input widget.
+ *
  * @since 0.9.8
+ * @package booster.widgets.forms.inputs
  */
 class TbInputHorizontal extends TbInput
 {
@@ -541,7 +545,7 @@ class TbInputHorizontal extends TbInput
 				'model' => $this->model,
 				'attribute' => $this->attribute,
 				'options' => isset($options) ? $options : array(),
-				'callback' => isset($callback) ? $callback : array(),
+				'callback' => isset($callback) ? $callback : '',
 				'htmlOptions' => $this->htmlOptions,
 			)
 		);
@@ -664,6 +668,21 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		echo $this->form->numberField($this->model, $this->attribute, $this->htmlOptions);
+		echo $this->getAppend();
+		echo $this->getError() . $this->getHint();
+		echo '</div>';
+	}
+
+	/**
+	 * Renders a pre-rendered custom field.
+	 * @return string the rendered content
+	 */
+	protected function customField()
+	{
+		echo $this->getLabel();
+		echo '<div class="controls">';
+		echo $this->getPrepend();
+		echo $this->htmlOptions['input'];
 		echo $this->getAppend();
 		echo $this->getError() . $this->getHint();
 		echo '</div>';

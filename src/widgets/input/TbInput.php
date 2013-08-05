@@ -1,15 +1,18 @@
 <?php
-/*## TbInput class file.
+/**
+ *## TbInput class file.
  *
  * @author Christoffer Niska <ChristofferNiska@gmail.com>
  * @copyright Copyright &copy; Christoffer Niska 2011-
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php) 
- * @package bootstrap.widgets.input
  */
 
 /**
- * Bootstrap input widget.
+ *## Bootstrap input widget.
+ *
  * Used for rendering inputs according to Bootstrap standards.
+ *
+ * @package booster.widgets.forms.inputs
  */
 abstract class TbInput extends CInputWidget
 {
@@ -42,6 +45,7 @@ abstract class TbInput extends CInputWidget
 	const TYPE_SELECT2 = 'select2';
 	const TYPE_TYPEAHEAD = 'typeahead';
 	const TYPE_NUMBER = 'numberfield';
+	const TYPE_CUSTOM = 'custom';
 
 	/**
 	 * @var TbActiveForm the associated form widget.
@@ -183,11 +187,6 @@ abstract class TbInput extends CInputWidget
 		if (isset($this->htmlOptions['hint'])) {
 			$this->hintText = $this->htmlOptions['hint'];
 			unset($this->htmlOptions['hint']);
-		}
-
-		if (isset($this->htmlOptions['label'])) {
-			$this->label = $this->htmlOptions['label'];
-			unset($this->htmlOptions['label']);
 		}
 
 		if (isset($this->htmlOptions['labelOptions'])) {
@@ -349,6 +348,10 @@ abstract class TbInput extends CInputWidget
 
 			case self::TYPE_NUMBER:
 				$this->numberField();
+				break;
+
+			case self::TYPE_CUSTOM:
+				$this->customField();
 				break;
 
 			default:
@@ -819,4 +822,14 @@ abstract class TbInput extends CInputWidget
 	 * @abstract
 	 */
 	abstract protected function numberField();
+
+	/**
+	 *### . customField()
+	 *
+	 * Renders a pre-rendered custom field.
+	 *
+	 * @return string the rendered content
+	 * @abstract
+	 */
+	abstract protected function customField();
 }

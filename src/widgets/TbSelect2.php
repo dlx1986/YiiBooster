@@ -1,10 +1,18 @@
 <?php
-/*##  TbSelect2 class file.
+/**
+ *##  TbSelect2 class file.
  *
  * @author Antonio Ramirez <antonio@clevertech.biz>
  * @copyright Copyright &copy; Clevertech 2012-
- * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php) 
- * @package bootstrap.widgets.input
+ * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
+ */
+
+/**
+ *## Select2 wrapper widget
+ *
+ * @see http://ivaynberg.github.io/select2/
+ *
+ * @package booster.widgets.forms.inputs
  */
 class TbSelect2 extends CInputWidget
 {
@@ -96,8 +104,7 @@ class TbSelect2 extends CInputWidget
 	 */
 	public function registerClientScript($id)
 	{
-		Yii::app()->bootstrap->registerAssetCss('select2.css');
-		Yii::app()->bootstrap->registerAssetJs('select2.js');
+		Yii::app()->bootstrap->registerPackage('select2');
 
 		$options = !empty($this->options) ? CJavaScript::encode($this->options) : '';
 

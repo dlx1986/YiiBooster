@@ -1,13 +1,19 @@
 <?php
-/*## ActiveForm supporting cool inputs from Bootstrap
+/**
+ *## TbActiveForm class file.
  *
  * @author Christoffer Niska <ChristofferNiska@gmail.com>
  * @copyright Copyright &copy; Christoffer Niska 2011-
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
- * @package bootstrap.widgets
  */
 
 Yii::import('bootstrap.widgets.input.TbInput');
+
+/**
+ *## ActiveForm supporting cool inputs from Bootstrap
+ *
+ * @package booster.widgets.forms
+ */
 class TbActiveForm extends CActiveForm
 {
 	// Allowed form types.
@@ -527,6 +533,22 @@ class TbActiveForm extends CActiveForm
 	public function numberFieldRow($model, $attribute, $htmlOptions = array())
 	{
 		return $this->inputRow(TbInput::TYPE_NUMBER, $model, $attribute, null, $htmlOptions);
+	}
+
+	/**
+	 * Renders a pre-rendered custom field input row.
+	 *
+	 * @param CModel $model the data model
+	 * @param string $attribute the attribute
+     * @param string $input the rendered input.
+	 *
+	 * @return string the generated row
+	 */
+	public function customRow($model, $attribute, $input)
+	{
+		$htmlOptions = array();
+		$htmlOptions['input'] = $input;
+		return $this->inputRow(TbInput::TYPE_CUSTOM, $model, $attribute, null, $htmlOptions);
 	}
 
 	/**
