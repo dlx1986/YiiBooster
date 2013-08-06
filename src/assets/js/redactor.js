@@ -978,6 +978,12 @@ var RLANG = {
 				// container
 				this.$box = $('<div class="redactor_box"></div>');
 
+                var classlist = this.$el.get(0).className.split(/\s+/);
+                $.each(classlist, $.proxy(function(i,s)
+                {
+                    this.$box.addClass(s);
+                }, this));
+                
 				// air box
 				if (this.opts.air)
 				{
@@ -1023,12 +1029,6 @@ var RLANG = {
 					{
 						 this.$content = this.$editor = $('<div></div>');
 					}
-
-					var classlist = this.$el.get(0).className.split(/\s+/);
-					$.each(classlist, $.proxy(function(i,s)
-					{
-						this.$content.addClass('redactor_' + s);
-					}, this));
 				}
 				else
 				{
