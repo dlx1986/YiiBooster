@@ -155,7 +155,7 @@ class TbAlert extends CWidget
 
 		echo CHtml::closeTag('div');
 
-		$id .= '_' . self::$_containerId++;
+		//$id .= '_' . self::$_containerId++;
 		$selector = "#{$id} .alert";
 
 		/** @var CClientScript $cs */
